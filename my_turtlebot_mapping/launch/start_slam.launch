@@ -1,0 +1,15 @@
+<launch>
+    <!-- Run Gazebo -->
+    <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_world.launch" />
+
+    <!-- Run Robot state publisher -->
+    <node name="publisher_state" pkg="robot_state_publisher" type="robot_state_publisher"
+        respawn="false" output="screen">
+        <param name="publish_frequency" type="double" value="5.0" />
+    </node>
+    <!-- Run Rviz -->
+    <node name="launch_rviz" pkg="rviz" type="rviz"
+        args="-d $(find my_turtlebot_mapping)/rviz/init.rviz" />
+    <!--Run Slam Gmapping  -->
+    <include file="$(find my_turtlebot_mapping)/launch/slam_gmapping.launch" />
+</launch>

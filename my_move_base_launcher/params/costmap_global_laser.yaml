@@ -1,7 +1,10 @@
+# changed odom to map
 global_frame: odom
-rolling_window: true
+rolling_window: false
+# set true for robot avoid abstract
 track_unknown_space: true
 
 plugins:
+  # - {name: static_map,                type: "costmap_2d::StaticLayer"}
   - {name: obstacles_laser,           type: "costmap_2d::ObstacleLayer"}
   - {name: inflation,                 type: "costmap_2d::InflationLayer"}
